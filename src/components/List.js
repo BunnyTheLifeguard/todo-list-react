@@ -13,7 +13,7 @@ const List = ({
 }) => {
 	const renderedList = list.map((item) => (
 		<li key={item.task}>
-			{item.task} <br /> {item.date} <br /> {item.priority}
+			Task: {item.task} <br /> Due: {item.date} <br /> Prio: {item.priority}
 		</li>
 	));
 
@@ -28,8 +28,11 @@ const List = ({
 					</label>
 					<br />
 					<label>
-						Due date: <DayPickerInput onDayChange={selectDate} />
+						Due date:
+						<br />
+						<DayPickerInput onDayChange={selectDate} />
 					</label>
+					<br />
 					<label>
 						Priority:
 						<br />
