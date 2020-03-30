@@ -23,6 +23,7 @@ const App = () => {
 	const [list, setList] = useState(iList);
 	const [todoTitle, setTodoTitle] = useState('');
 	const [priority, setPriority] = useState('High');
+	const [date, setDate] = useState('');
 
 	useEffect(() => setList(list), []);
 
@@ -34,11 +35,15 @@ const App = () => {
 		setPriority(event.target.value);
 	};
 
+	const selectDate = (event) => {
+		setDate(event);
+	};
+
 	const addTodo = (event) => {
 		event.preventDefault();
 		const newTodo = {
 			task: todoTitle,
-			date: new Date().toDateString(),
+			date: date.toDateString(),
 			priority: priority
 		};
 		setList(list.concat(newTodo));
@@ -54,6 +59,7 @@ const App = () => {
 				setTitle={setTitle}
 				priority={priority}
 				selectPrio={selectPrio}
+				selectDate={selectDate}
 			/>
 		</div>
 	);

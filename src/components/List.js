@@ -1,7 +1,16 @@
 import React from 'react';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
+import 'react-day-picker/lib/style.css';
 
-const List = ({ list, addTodo, setTitle, todoTitle, priority, selectPrio }) => {
+const List = ({
+	list,
+	addTodo,
+	setTitle,
+	todoTitle,
+	priority,
+	selectPrio,
+	selectDate
+}) => {
 	const renderedList = list.map((item) => (
 		<li key={item.task}>
 			{item.task} <br /> {item.date} <br /> {item.priority}
@@ -19,7 +28,7 @@ const List = ({ list, addTodo, setTitle, todoTitle, priority, selectPrio }) => {
 					</label>
 					<br />
 					<label>
-						Due date: <DayPickerInput />
+						Due date: <DayPickerInput onDayChange={selectDate} />
 					</label>
 					<label>
 						Priority:
