@@ -1,17 +1,18 @@
 {
+	"homepage": "https://bunnythelifeguard.github.io/todo-list-react/",
 	"name": "todo-list-react",
 	"version": "0.1.0",
 	"description": "",
 	"scripts": {
 		"start": "parcel index.html",
-		"build": "parcel build index.html",
-		"predeploy": "npm run build",
+		"build": "parcel build index.html --public-url '.'",
+		"predeploy": "rm -rf dist && parcel build index.html --public-url '.'",
 		"deploy": "gh-pages -d dist"
 	},
 	"license": "MIT",
-	"homepage": "https://bunnythelifeguard.github.io/todo-list-react",
 	"dependencies": {
 		"react": "^16.13.0",
+		"react-day-picker": "^7.4.0",
 		"react-dom": "^16.13.0"
 	},
 	"devDependencies": {

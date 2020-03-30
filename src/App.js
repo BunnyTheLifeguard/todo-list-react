@@ -4,18 +4,18 @@ import List from './components/List';
 let iList = [
 	{
 		task: 'Buy water',
-		date: '-',
-		importance: 'High'
+		date: 'Fri Mar 27 2020',
+		priority: 'High'
 	},
 	{
 		task: 'Buy food',
-		date: '-',
-		importance: 'Low'
+		date: 'Fri Mar 27 2020',
+		priority: 'Low'
 	},
 	{
 		task: 'Feed cat',
-		date: '-',
-		importance: 'High'
+		date: 'Sat Mar 28 2020',
+		priority: 'High'
 	}
 ];
 
@@ -34,7 +34,7 @@ const App = () => {
 		const newTodo = {
 			task: todoTitle,
 			date: new Date().toDateString(),
-			importance: 'Low'
+			priority: 'Low'
 		};
 		setList(list.concat(newTodo));
 		setTodoTitle('');
