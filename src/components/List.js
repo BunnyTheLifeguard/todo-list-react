@@ -1,10 +1,10 @@
 import React from 'react';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 
-const List = ({ list, addTodo, setTitle, todoTitle }) => {
+const List = ({ list, addTodo, setTitle, todoTitle, priority, selectPrio }) => {
 	const renderedList = list.map((item) => (
 		<li key={item.task}>
-			{item.task} <br /> {item.date} <br /> {item.importance}
+			{item.task} <br /> {item.date} <br /> {item.priority}
 		</li>
 	));
 
@@ -26,11 +26,23 @@ const List = ({ list, addTodo, setTitle, todoTitle }) => {
 						<br />
 						<label>
 							High
-							<input type="radio" value="high" />
+							<input
+								type="radio"
+								name="priority"
+								value="High"
+								checked={priority === 'High'}
+								onChange={selectPrio}
+							/>
 						</label>
 						<label>
 							Low
-							<input type="radio" value="low" />
+							<input
+								type="radio"
+								name="priority"
+								value="Low"
+								checked={priority === 'Low'}
+								onChange={selectPrio}
+							/>
 						</label>
 					</label>
 					<br />
