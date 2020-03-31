@@ -2,6 +2,9 @@ import React from 'react';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
 
+const formStyle = { margin: '10px 0px', display: 'inline-block' };
+const listStyle = { margin: '20px 0px' };
+
 const List = ({
 	list,
 	addTodo,
@@ -12,28 +15,30 @@ const List = ({
 	selectDate
 }) => {
 	const renderedList = list.map((item) => (
-		<li key={item.task}>
+		<li key={item.task} style={listStyle}>
 			Task: {item.task} <br /> Due: {item.date} <br /> Prio: {item.priority}
 		</li>
 	));
 
 	return (
 		<>
+			<h1>React ToDo List</h1>
+			<h3>(Frontend only - No database)</h3>
 			<ul>
 				<form onSubmit={addTodo}>
-					<label>
+					<label style={formStyle}>
 						New ToDo:
 						<br />
 						<input type="text" value={todoTitle} onChange={setTitle} />
 					</label>
 					<br />
-					<label>
+					<label style={formStyle}>
 						Due date:
 						<br />
 						<DayPickerInput onDayChange={selectDate} />
 					</label>
 					<br />
-					<label>
+					<label style={formStyle}>
 						Priority:
 						<br />
 						<label>
@@ -58,7 +63,7 @@ const List = ({
 						</label>
 					</label>
 					<br />
-					<input type="submit" value="Add" />
+					<input type="submit" value="Add" style={formStyle} />
 				</form>
 				{renderedList}
 			</ul>

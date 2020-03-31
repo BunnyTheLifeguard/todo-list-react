@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import List from './components/List';
 
+const font = { fontFamily: 'Verdana, Arial, Helvetica, sans-serif' };
+
 let iList = [
 	{
 		task: 'Buy water',
@@ -51,7 +53,7 @@ const App = () => {
 	};
 
 	return (
-		<div>
+		<div style={font}>
 			<List
 				list={list}
 				addTodo={addTodo}
