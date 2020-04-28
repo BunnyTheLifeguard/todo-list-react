@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './styles/App.css';
 import List from './components/List';
 
 const font = { fontFamily: 'Verdana, Arial, Helvetica, sans-serif' };
@@ -7,18 +8,18 @@ let iList = [
 	{
 		task: 'Buy water',
 		date: 'Fri Mar 27 2020',
-		priority: 'High'
+		priority: 'High',
 	},
 	{
 		task: 'Buy food',
 		date: 'Fri Mar 27 2020',
-		priority: 'Low'
+		priority: 'Low',
 	},
 	{
 		task: 'Feed cat',
 		date: 'Sat Mar 28 2020',
-		priority: 'High'
-	}
+		priority: 'High',
+	},
 ];
 
 const App = () => {
@@ -46,23 +47,25 @@ const App = () => {
 		const newTodo = {
 			task: todoTitle,
 			date: date.toDateString(),
-			priority: priority
+			priority: priority,
 		};
 		setList(list.concat(newTodo));
 		setTodoTitle('');
 	};
 
 	return (
-		<div style={font}>
-			<List
-				list={list}
-				addTodo={addTodo}
-				todoTitle={todoTitle}
-				setTitle={setTitle}
-				priority={priority}
-				selectPrio={selectPrio}
-				selectDate={selectDate}
-			/>
+		<div className="container">
+			<div style={font} className="todo">
+				<List
+					list={list}
+					addTodo={addTodo}
+					todoTitle={todoTitle}
+					setTitle={setTitle}
+					priority={priority}
+					selectPrio={selectPrio}
+					selectDate={selectDate}
+				/>
+			</div>
 		</div>
 	);
 };

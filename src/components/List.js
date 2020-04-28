@@ -2,7 +2,7 @@ import React from 'react';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
 
-const formStyle = { margin: '10px 0px', display: 'inline-block' };
+// const formStyle = { margin: '10px 0px', display: 'inline-block' };
 const listStyle = { margin: '20px 0px' };
 
 const List = ({
@@ -12,7 +12,7 @@ const List = ({
 	todoTitle,
 	priority,
 	selectPrio,
-	selectDate
+	selectDate,
 }) => {
 	const renderedList = list.map((item) => (
 		<li key={item.task} style={listStyle}>
@@ -26,24 +26,31 @@ const List = ({
 			<h3>(Frontend only - No database)</h3>
 			<ul>
 				<form onSubmit={addTodo}>
-					<label style={formStyle}>
+					<label className="description">
 						New ToDo:
 						<br />
-						<input type="text" value={todoTitle} onChange={setTitle} />
+						<input
+							className="field"
+							type="text"
+							value={todoTitle}
+							onChange={setTitle}
+						/>
 					</label>
 					<br />
-					<label style={formStyle}>
+					<label className="field">
 						Due date:
+						<br />
 						<br />
 						<DayPickerInput onDayChange={selectDate} />
 					</label>
 					<br />
-					<label style={formStyle}>
+					<label className="field">
 						Priority:
 						<br />
-						<label>
+						<label className="content">
 							High
 							<input
+								className="radio"
 								type="radio"
 								name="priority"
 								value="High"
@@ -51,9 +58,10 @@ const List = ({
 								onChange={selectPrio}
 							/>
 						</label>
-						<label>
+						<label className="content">
 							Low
 							<input
+								className="radio"
 								type="radio"
 								name="priority"
 								value="Low"
@@ -63,7 +71,9 @@ const List = ({
 						</label>
 					</label>
 					<br />
-					<input type="submit" value="Add" style={formStyle} />
+					<button type="submit" value="Add">
+						Add ToDo
+					</button>
 				</form>
 				{renderedList}
 			</ul>
