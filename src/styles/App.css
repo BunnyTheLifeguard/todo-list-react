@@ -1,3 +1,7 @@
+h1 {
+  color: #007aff;
+}
+
 .container {
   height: 100%;
   display: -ms-grid;
@@ -8,6 +12,14 @@
 .todo {
   margin: auto;
   width: 30%;
+}
+
+.prioHigh {
+  color: #ff3b30;
+}
+
+.prioLow {
+  color: #34c759;
 }
 
 button {
@@ -21,14 +33,18 @@ button {
 }
 
 button:hover {
-  background-color: white;
-  color: #007aff;
-  border: 2px solid #007aff;
+  background-color: #5ac8fa;
+  border: 2px solid #5ac8fa;
 }
 
 .field {
-  margin: 10px 0px;
+  margin-bottom: 20px;
   display: inline-block;
+}
+
+.inputField {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .radio {
@@ -37,10 +53,6 @@ button:hover {
 
 label {
   font-weight: 600;
-}
-
-.content {
-  font-weight: normal;
 }
 
 ul {
@@ -55,7 +67,76 @@ li {
 }
 
 li:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-box-shadow: 0 2.7px 5.3px rgba(0, 0, 0, 0.028), 0 8.9px 17.9px rgba(0, 0, 0, 0.042), 0 40px 80px rgba(0, 0, 0, 0.07);
+          box-shadow: 0 2.7px 5.3px rgba(0, 0, 0, 0.028), 0 8.9px 17.9px rgba(0, 0, 0, 0.042), 0 40px 80px rgba(0, 0, 0, 0.07);
+}
+
+.prio {
+  margin-bottom: 1px;
+}
+
+.radioContainer {
+  font-weight: normal;
+  position: relative;
+  padding-right: 50px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.radioContainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.radioCheck {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 50%;
+  -webkit-box-shadow: inset 2px 2px 2px #d6d6d6, inset -2px -2px 2px #ffffff;
+          box-shadow: inset 2px 2px 2px #d6d6d6, inset -2px -2px 2px #ffffff;
+}
+
+.radioContainer:hover input ~ .radioCheck {
+  background-color: #5ac8fa;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.radioContainer input:checked ~ .radioCheck {
   background-color: #007aff;
-  color: white;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.radioCheck:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.radioContainer input:checked ~ .radioCheck:after {
+  display: block;
+}
+
+.radioContainer .radioCheck:after {
+  top: 5px;
+  left: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: white;
 }
 /*# sourceMappingURL=App.css.map */

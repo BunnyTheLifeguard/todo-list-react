@@ -2,7 +2,6 @@ import React from 'react';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
 
-// const formStyle = { margin: '10px 0px', display: 'inline-block' };
 const listStyle = { margin: '20px 0px' };
 
 const List = ({
@@ -14,23 +13,32 @@ const List = ({
 	selectPrio,
 	selectDate,
 }) => {
-	const renderedList = list.map((item) => (
-		<li key={item.task} style={listStyle}>
-			Task: {item.task} <br /> Due: {item.date} <br /> Prio: {item.priority}
-		</li>
-	));
+	const renderedList = list.map((item) =>
+		item.priority === 'High' ? (
+			<li key={item.task} style={listStyle}>
+				Task: {item.task} <br /> Due: {item.date}{' '}
+				<div className="prioHigh">Prio: {item.priority}</div>
+			</li>
+		) : (
+			<li key={item.task} style={listStyle}>
+				Task: {item.task} <br /> Due: {item.date}{' '}
+				<div className="prioLow">Prio: {item.priority}</div>
+			</li>
+		)
+	);
 
 	return (
 		<>
 			<h1>React ToDo List</h1>
 			<h3>(Frontend only - No database)</h3>
+			<br />
 			<ul>
 				<form onSubmit={addTodo}>
 					<label className="description">
 						New ToDo:
 						<br />
 						<input
-							className="field"
+							className="inputField"
 							type="text"
 							value={todoTitle}
 							onChange={setTitle}
@@ -45,9 +53,9 @@ const List = ({
 					</label>
 					<br />
 					<label className="field">
-						Priority:
+						<div className="prio">Priority:</div>
 						<br />
-						<label className="content">
+						<label className="radioContainer">
 							High
 							<input
 								className="radio"
@@ -57,8 +65,9 @@ const List = ({
 								checked={priority === 'High'}
 								onChange={selectPrio}
 							/>
+							<span className="radioCheck"></span>
 						</label>
-						<label className="content">
+						<label className="radioContainer">
 							Low
 							<input
 								className="radio"
@@ -68,6 +77,7 @@ const List = ({
 								checked={priority === 'Low'}
 								onChange={selectPrio}
 							/>
+							<span className="radioCheck"></span>
 						</label>
 					</label>
 					<br />
